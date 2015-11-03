@@ -9,13 +9,13 @@ source 'https://rubygems.org'
    gem 'rails_12factor'
  end
  
- # #2
+ 	gem 'bootstrap-sass'
  group :development do
    gem 'sqlite3'
  end
 
  group :development, :test do
-   gem 'rspec-rails', '~> 3.0'
+   gem 'rspec-rails'
  end
  
  # Use SCSS for stylesheets
