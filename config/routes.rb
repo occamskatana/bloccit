@@ -11,6 +11,8 @@ root to: 'welcome#index'
 
   get 'welcome/contact'
 
+  get 'welcome/faq'
+
 
 
  
