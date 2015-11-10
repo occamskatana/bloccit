@@ -1,11 +1,10 @@
 Bloccit::Application.routes.draw do
   
+resources :posts
 
-root to: 'welcome#index'
 
-  get 'welcome/index'
 
-  get 'welcome/about'
+  get 'about' => 'welcome#about'
 
  
 
@@ -16,7 +15,7 @@ root to: 'welcome#index'
 
 
  
-
+root to: 'welcome#index'
 
   
 
