@@ -16,6 +16,22 @@
      body:   RandomData.random_paragraph
    )
  end
+
+
+ 		puts "#{Post.count}"
+ 	Post.find_or_create_by(title:"awesome title", body: "awesome body")
+ 		puts "#{Post.count}"
+
+ 		
+ 		
+
+ 		
+
+ 	
+
+ 
+
+
  posts = Post.all
  
  # Create Comments
@@ -27,6 +43,10 @@
      body: RandomData.random_paragraph
    )
  end
+
+ 	puts "#{Comment.count}"
+ 	Comment.find_or_create_by(body: "awesome body")
+ 	puts "#{Comment.count}"
  
  puts "Seed finished"
  puts "#{Post.count} posts created"
