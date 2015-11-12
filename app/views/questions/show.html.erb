@@ -1,0 +1,19 @@
+<h1><%= @question.title%></h1>
+
+
+<div class="row">
+	<div class="col-md-6">
+		<p><%= @question.body %></p>
+	</div>
+
+	<div class="col-md-3">
+		<%= link_to "Edit", edit_question_path(@question), class:'btn btn-success' %>
+		<%= link_to "Delete Question", @queestion, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this post?'} %>
+	</div>
+
+	<div class="col-md-3">
+		<h4>Is this question resolved?</h4>
+		<%= check_box(@question, :resolved) %>
+	</div>
+</div> 
+

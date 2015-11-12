@@ -7,7 +7,18 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
  include RandomData
  
- # Create Posts
+
+ 150.times do
+ Question.create!(
+ 	title: RandomData.random_sentence,
+ 	body: RandomData.random_paragraph
+ 	)
+ end
+
+ questons = Question.all
+
+ print "#{Question.count} questions have been seeded!"
+
  50.times do
  # #1
    Post.create!(
