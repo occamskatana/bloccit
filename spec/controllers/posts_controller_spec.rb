@@ -39,7 +39,7 @@ RSpec.describe PostsController, type: :controller do
   end
 =end  
 
-
+let (:my_post) { Post.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph) }
 
  describe "GET show" do
      it "returns http success" do

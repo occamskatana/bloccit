@@ -7,8 +7,21 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
  include RandomData
  
- # Create Posts
- 50.times do
+
+
+300.times do 
+
+ Advertisement.create!(
+ # #2
+     title:  RandomData.random_sentence,
+     copy:   RandomData.random_paragraph, 
+     price:  rand(1..4000)
+   )
+ end
+advertisements = Advertisement.all
+
+
+ 100.times do
  # #1
    Post.create!(
  # #2
