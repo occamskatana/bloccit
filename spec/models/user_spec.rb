@@ -7,10 +7,10 @@ RSpec.describe User, type: :model do
   it {should validate_length_of(:name).is_at_least(1)}
 
   #test for email
-
+  it {should validate_uniqueness_of(:email)}
   it {should validate_presence_of(:email)}
   it {should validate_length_of(:email).is_at_least(3)}
-  it {should validate_uniqueness_of(:email)}
+  
   it {should allow_value("user@bloccit.com").for(:email)}
   it {should_not allow_value("userbloccit.com").for(:email)}
 
@@ -29,6 +29,13 @@ RSpec.describe User, type: :model do
   		it "should respond to an email" do 
   			expect(user).to respond_to(:email)
   		end
+
+      it "should capitalize first letters of first and last name" do 
+
+          user.name = "john carter" 
+          user.save
+          expect(user.name).to eq("John Carter")
+        end
   	end
 
 
@@ -49,4 +56,5 @@ RSpec.describe User, type: :model do
   				expect(user_with_invalid_email_format).to_not be_valid
   			end
   	end
+
 end
