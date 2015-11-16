@@ -8,7 +8,7 @@ source 'https://rubygems.org'
    gem 'pg'
    gem 'rails_12factor'
  end
- 
+ 	gem 'bcrypt'
  	gem 'bootstrap-sass'
  group :development do
    gem 'sqlite3'
