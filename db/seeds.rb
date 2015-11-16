@@ -6,7 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
  include RandomData
- 
+
+ 50.times do 
+ 	SponsoredPost.create!(
+ 		title: RandomData.random_sentence, 
+ 		body: RandomData.random_paragraph
+ 		price: 100
+ 		)
+ 	end
+
+ 	sponsored_posts = SponsoredPost.all
+
  50.times do 
  	Topic.create!(
  		name: RandomData.random_sentence,
