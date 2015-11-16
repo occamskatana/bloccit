@@ -99,7 +99,7 @@ RSpec.describe TopicsController, type: :controller do
 			updated_topic = assigns(:topic)
 
 			expect(updated_topic.id).to eq my_topic.id
-			expeect(updated_topic.name).to eq new_name
+			expect(updated_topic.name).to eq new_name
 			expect(updated_topic.description).to eq new_description
 		end
 
