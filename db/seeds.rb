@@ -6,6 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
  include RandomData
+
+ 5.times do 
+
+ 	user = User.create!(
+ 		name: RandomData.random_name, 
+ 		email: RandomData.random_email, 
+ 		password: RandomData.random_sentence
+ 		)
+ end
+
+ users = User.all
  
  50.times do 
  	Topic.create!(
@@ -19,6 +30,7 @@
  50.times do
  # #1
    Post.create!(
+   	user: users.sample,
  	 topic: topics.sample, 
      title:  RandomData.random_sentence,
      body:   RandomData.random_paragraph
@@ -35,8 +47,18 @@
      body: RandomData.random_paragraph
    )
  end
+
+ user = User.first
+
+ user.update_attributes!(
+
+ 	email: 'johngallweycarter@gmail.com', 
+ 	password: 'msghguua1!'
+
+ 	)
  
  puts "Seed finished"
+ puts "#{User.count} users created"
  puts "#{Topic.count} Topics created"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
