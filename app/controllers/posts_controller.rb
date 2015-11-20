@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
     before_action :require_sign_in, except: :show
 
+
   def show
   	@post = Post.find(params[:id])
   end
@@ -52,7 +53,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-
+    if current_user.post || user.moderator?
     @post = Post.find(params[:id])
 
     if @post.destroy

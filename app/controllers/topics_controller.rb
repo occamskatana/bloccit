@@ -2,6 +2,7 @@ class TopicsController < ApplicationController
 
 	before_action :require_sign_in, except: [:index, :show]
 	before_action :authorize_user, except: [:index, :show]
+	
 
 
 	def index
@@ -28,20 +29,25 @@ class TopicsController < ApplicationController
 	end
 
 	def edit
-		@topic = Topic.find(params[:id])
+		
+		 current_user.moderator? || current_user.admin?
+			@topic = Topic.find(params[:id])
+		
 	end
 
 	def update
-		@topic = Topic.find(params[:id])
-		@topic.assign_attributes(topic_params)
+			
+			@topic = Topic.find(params[:id])
+			@topic.assign_attributes(topic_params)
 
-		if @topic.save
-			flash[:notice] = "Topic was saved"
-			redirect_to @topic
-		else
-			flash[:error] = "There was a problem saving your topic"
-			render :edit
-		end
+			if @topic.save
+				flash[:notice] = "Topic was saved"
+				redirect_to @topic
+			else
+				flash[:error] = "There was a problem saving your topic"
+				render :edit
+			end
+		
 	end
 
 	def destroy
@@ -72,4 +78,5 @@ class TopicsController < ApplicationController
 				redirect_to topics_path
 			end
 		end
+
 end
