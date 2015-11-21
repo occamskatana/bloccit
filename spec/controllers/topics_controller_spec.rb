@@ -351,15 +351,16 @@ end
 		end
 
 		describe "PUT update" do 
+
 			it "updates topic with expected attributes" do 
-				new_name = "rawr"
+				new_name = RandomData.random_sentence
 				new_description = "rawrmasterasdfasdfasdfasdfasdfasdfasdfasdfasdfsadf"
 
 				put :update, id: my_topic.id, topic: {name: new_name, description: new_description }
 
 				updated_topic = assigns(:topic)
 
-				expect(updated_topic.id).to eq my_topic.id
+				expect(updated_topic.id).to eq(my_topic.id)
 				expect(updated_topic.name).to eq new_name
 				expect(updated_topic.description).to eq new_description
 			end
