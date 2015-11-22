@@ -30,8 +30,8 @@
  50.times do
  # #1
    Post.create!(
-   	user: users.sample,
- 	 topic: topics.sample, 
+   	 user: users.sample,
+ 	   topic: topics.sample, 
      title:  RandomData.random_sentence,
      body:   RandomData.random_paragraph
    )
@@ -42,7 +42,7 @@
  # #3
  100.times do
    Comment.create!(
- # #4
+     user: users.sample,
      post: posts.sample,
      body: RandomData.random_paragraph
    )
