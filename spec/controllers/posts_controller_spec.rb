@@ -73,6 +73,8 @@ require 'rails_helper'
           create_session(my_user)
         end
 
+         
+
         describe "GET show" do 
           it "returns http success" do 
             get :show, topic_id: my_topic.id , id: my_post.id
@@ -141,7 +143,7 @@ require 'rails_helper'
               new_body = RandomData.random_paragraph
 
               put :update, topic_id: my_topic.id, id: my_post.id, post:{title: "new_title", body: "new_body"}
-              expect(response).to redirect_to [my_topic, my_post]
+              expect(response).to redirect_to([my_topic, my_post])
             end
           end
 
@@ -157,6 +159,5 @@ require 'rails_helper'
               expect(response).to redirect_to my_topic
             end
           end
-        end
-      
+        end    
 end
