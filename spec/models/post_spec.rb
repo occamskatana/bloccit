@@ -79,5 +79,12 @@ let(:topic) {Topic.create!(name: RandomData.random_sentence, description: Random
 				expect(post.rank).to eq(old_rank - 1)
 			end
 		end
+
+		describe "auto favorite" do 
+			it "automatically favorites the post for the user upon creation" do 
+				new_post = topic.posts.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, user: user)
+				expect(user.favorites.find_by_post_id(new_post.id)).not_to be_nil 
+			end
+		end
 	end
 end

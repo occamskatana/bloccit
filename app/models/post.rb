@@ -8,6 +8,7 @@ class Post < ActiveRecord::Base
 	has_many :favorites, dependent: :destroy
 	default_scope {order('rank DESC')}
 
+	after_create :auto_favorite
 
 	validates :title, length: {minimum: 5}, presence: true
 	validates :body, length: {minimum: 20}, presence: true
@@ -32,4 +33,8 @@ class Post < ActiveRecord::Base
 		update_attribute(:rank, new_rank)
 	end
 
+	def auto_favorite
+		Favorite.create(post: self, user: self.user)
+		FavoriteMailer.new_post(self).deliver_now
+	end
 end
