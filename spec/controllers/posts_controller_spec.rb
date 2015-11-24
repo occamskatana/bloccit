@@ -63,7 +63,7 @@ require 'rails_helper'
         describe "DELETE destroy" do 
           it "returns http redirect" do 
             delete :destroy, topic_id:  my_topic.id, id: my_post.id
-            expect(response). to have_http_status(:redirect)
+            expect(response).to have_http_status(:redirect)
           end
         end
       end

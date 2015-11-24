@@ -21,6 +21,7 @@ let(:topic) {Topic.create!(name: RandomData.random_sentence, description: Random
 	it {should have_many(:votes)}
 
 	it {should have_many(:comments)}
+	it {should have_many(:favorites)}
 
 	describe "attributes" do 
 		it "should respond to a title" do 
