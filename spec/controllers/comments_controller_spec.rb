@@ -9,7 +9,6 @@
    let(:my_post) { my_topic.posts.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, user: my_user) }
    let(:my_comment) { Comment.create!(body: 'Comment Body', post: my_post, user: my_user) }
  
- # #6
    context "guest" do
      describe "POST create" do
        it "redirects the user to the sign in view" do
