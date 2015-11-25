@@ -25,7 +25,6 @@
      end
    end
  
- # #7
    context "member user doing CRUD on a comment they don't own" do
      before do
        create_session(other_user)
@@ -50,8 +49,7 @@
      end
    end
  
- 
- # #8
+
    context "member user doing CRUD on a comment they own" do
      before do
        create_session(my_user)
@@ -82,7 +80,7 @@
      end
    end
  
- # #9
+
    context "admin user doing CRUD on a comment they don't own" do
      before do
        other_user.admin!
