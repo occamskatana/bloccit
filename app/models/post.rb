@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
 	has_many :votes, dependent: :destroy
 	has_many :favorites, dependent: :destroy
 	default_scope {order('rank DESC')}
+	scope :visible_to, -> {user ? all :joins(:topic).where('topics.public' => true)}
 
 	after_create :auto_favorite
 
