@@ -2,7 +2,7 @@ require 'rails_helper'
 include RandomData
 
 RSpec.describe User, type: :model do
-  let(:user) {User.create!(name: "Bloccit User", email: "User@bloccit.com", password: "password")}
+  let(:user) {create(:user)}
   it {should have_many(:posts)}
   it {should have_many(:comments)}
   it {should have_many(:votes)}

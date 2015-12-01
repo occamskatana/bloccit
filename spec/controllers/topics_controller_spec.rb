@@ -162,7 +162,7 @@ end
 
 				it "assigns Topic.all to topic" do 
 					get :index
-					expect(assigns(:topics)).to eq(my_topic)
+					expect(assigns(:topics)).to eq(Topic.all)
 				end
 			end
 
