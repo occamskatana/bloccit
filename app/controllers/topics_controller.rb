@@ -10,6 +10,11 @@ class TopicsController < ApplicationController
 
 	def show
 		@topic = Topic.find(params[:id])
+
+		unless @topic.public || current_user
+			flash[:error] = "You must be signed in to see this topic"
+			redirect_to new_session_path
+		end
 	end
 
 	def new

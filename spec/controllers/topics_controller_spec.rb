@@ -43,6 +43,11 @@ let (:my_private_topic) {create(:topic, public: false)}
 			get :show, {id:my_topic.id}
 			expect(assigns(:topic)).to eq(my_topic)
 		end
+
+		it "redirects from private topics" do 
+				get :show, {id: my_private_topic.id}
+				expect(response).to redirect_to(new_session_path)
+		end
 	end
 
 	describe "GET new" do 
@@ -117,7 +122,7 @@ end
 			it "assigns my_topic to @topic" do 
 				get :show, {id:my_topic.id}
 				expect(assigns(:topic)).to eq(my_topic)
-			end
+			end	
 		end
 
 		describe "POST create" do 
