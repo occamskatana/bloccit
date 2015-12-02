@@ -92,7 +92,7 @@ end
 
 			it "assigns Topic.all to topic" do 
 				get :index
-				expect(assigns(:topics)).to eq(my_topic)
+				expect(assigns(:topics)).to eq([my_topic])
 			end
 		end
 
@@ -122,7 +122,7 @@ end
 
 		describe "GET edit" do 
 			it "returns http redirect" do 
-				get :edit
+				get :edit, {id: my_topic.id}
 				expect(response).to redirect_to(topics_path)
 			end
 		end
@@ -162,7 +162,7 @@ end
 
 				it "assigns Topic.all to topic" do 
 					get :index
-					expect(assigns(:topics)).to eq(my_topic)
+					expect(assigns(:topics)).to eq([my_topic])
 				end
 			end
 
