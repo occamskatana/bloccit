@@ -30,4 +30,6 @@
 <%= render @user.comments %>
 
 <h2>Favorites</h2>
-<%= render partial: 'favorites/favorite', locals: {post: @post} %>
+<% @user.favorites.each do |sex|  %>
+<h4><%= Post.find(sex.post_id).title %></h4>
+<% end %>

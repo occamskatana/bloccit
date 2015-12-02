@@ -26,9 +26,4 @@ class FavoritesController < ApplicationController
 		end
 		redirect_to [post.topic, post]
 	end
-
-	def show 
-		@post = Post.find(params[:post_id])
-		@favorite = @user.favorites.find
-	end
 end
