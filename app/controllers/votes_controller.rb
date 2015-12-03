@@ -2,13 +2,21 @@ class VotesController < ApplicationController
 	before_action :require_sign_in
 
 	def down_vote
-		update_vote(-1)
-		redirect_to :back
+		update_vote(-1)	
+
+		respond_to do |format|
+			format.js
+			format.html 
+		end
 	end
 
 	def up_vote
 		update_vote(1)
-		redirect_to :back
+
+		respond_to do |format|
+			format.js
+			format.html 
+		end
 	end
 
 
@@ -27,5 +35,7 @@ private
 		else
 			@vote = current_user.votes.create(value: new_value, post: @post)
 		end
+
+
 	end
 end
