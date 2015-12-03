@@ -6,7 +6,7 @@
 			<div><%= link_to " ", post_up_vote_path(post), class: 'glyphicon glyphicon-chevron-up', method: :post, remote: true %></div>
 		</div>
 
-		<div class='js-points'> <div><strong><%= post.points %></strong></div></div>
+		<div id="points-<%= post.id %>" class='js-points'> <div><strong><%= post.points %></strong></div></div>
 		
 		<div class='js-down_vote'>
 			<div><%= link_to " ", post_down_vote_path(post), class: 'glyphicon glyphicon-chevron-down', method: :post, remote: true %></div>
