@@ -45,7 +45,9 @@ class Api::V1::TopicsController < Api::V1::BaseController
 		end
 	end
 
-	private def topic_params
+	private 
+
+	def topic_params
 		params.require(:topic).permit(:name, :description, :public)
 	end
 
